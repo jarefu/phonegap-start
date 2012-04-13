@@ -29,6 +29,7 @@
 		  <div class="app_button" id="map_button">Show My Location</div>
   	      <div class="app_button" id="settings_button">Settings</div>
   	      <div class="app_button" id="accel_button">Acceleration</div>
+  	      <div class="app_button" id="camera_button">Camera</div>
 		</div>
 
 		<div id="accel" class="view">
@@ -36,9 +37,14 @@
 			<p id='accel_output'>...</p>
 			<div class="app_button" id="start_accel_button">Start</div>
   	      	<div class="app_button" id="stop_accel_button">Stop</div>
-			<div class="app_button" id="back_button">Go Back</div>
+			<div class="app_button back_button">Go Back</div>
 		</div>
-
+		
+		<div id="camera" class="view">
+			<img id="myImage"/>
+			<div class="app_button back_button">Go Back</div>
+		</div>
+		
 		<div id="map" class="view">
 		  <div class="map_image">
               <img id="static_map" src="assets/img/staticmap.png">

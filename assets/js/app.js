@@ -54,23 +54,25 @@ run(function() {
 		});
 		display('#welcome');
 	});
-	
-	when('#back', function() {
+	when('.back', function() {
 		display('#welcome');
 	});
-	
 	when('#start_accel', function() {
-		timer = setInterval("navigator.accelerometer.getCurrentAcceleration(onSuccess, onError)",100);
+		timer = setInterval("navigator.accelerometer.getCurrentAcceleration(onSuccess, onError)", 100);
 		display('#accel');
 	});
-	
 	when('#stop_accel', function() {
 		clearInterval(timer);
 		display('#accel');
 	});
-
 	when('#accel', function() {
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	});
+	when('#camera', function() {
+		navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
+			quality : 50,
+			destinationType : Camera.DestinationType.DATA_URL
+		});
 	});
 });
 function onSuccess(acceleration) {
@@ -80,4 +82,13 @@ function onSuccess(acceleration) {
 // onError: Failed to get the acceleration    //
 function onError() {
 	alert('Acceleration Error!');
+}
+
+function onCameraSuccess(imageData) {
+	var image = document.getElementById('myImage');
+	image.src = "data:image/jpeg;base64," + imageData;
+}
+
+function onCameraFail(message) {
+	alert('Failed because: ' + message);
 }
