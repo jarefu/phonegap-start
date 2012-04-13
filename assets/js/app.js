@@ -53,7 +53,7 @@ run(function() {
 		display('#welcome');
 	});
 
-	when('#getaccel', function() {
+	when('#accel', function() {
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	});
 });
