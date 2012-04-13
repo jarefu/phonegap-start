@@ -54,6 +54,7 @@ run(function() {
 	});
 
 	when('#accel', function() {
+		alert("here");
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	});
 });
