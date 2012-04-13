@@ -60,7 +60,7 @@ run(function() {
 	});
 	
 	when('#start_accel', function() {
-		timer = setInterval(navigator.accelerometer.getCurrentAcceleration(onSuccess, onError),100);
+		timer = setInterval("navigator.accelerometer.getCurrentAcceleration(onSuccess, onError)",100);
 		//alert("start");
 		display('#accel');
 	});
