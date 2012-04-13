@@ -1,6 +1,8 @@
 //
 //  --- our app behavior logic ---
 //
+var timer;
+
 run(function() {
 	// immediately invoked on first run
 	var init = (function() {
@@ -55,6 +57,14 @@ run(function() {
 	
 	when('#back', function() {
 		display('#welcome');
+	});
+	
+	when('#start_accel', function() {
+		timer = setInterval("navigator.accelerometer.getCurrentAcceleration(onSuccess, onError)",100);
+	});
+	
+	when('#stop_accel', function() {
+		clearInterval(timer);
 	});
 
 	when('#accel', function() {
