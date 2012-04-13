@@ -58,7 +58,7 @@ run(function() {
 	});
 });
 function onSuccess(acceleration) {
-	x$('#accel').html('Acceleration X: ' + acceleration.x + '<br/>' + 'Acceleration Y: ' + acceleration.y + '<br/>' + 'Acceleration Z: ' + acceleration.z + '<br/>' + 'Timestamp: ' + acceleration.timestamp);
+	x$('#accel_output').html('Acceleration X: ' + acceleration.x + '<br/>' + 'Acceleration Y: ' + acceleration.y + '<br/>' + 'Acceleration Z: ' + acceleration.z + '<br/>' + 'Timestamp: ' + acceleration.timestamp);
 }
 
 // onError: Failed to get the acceleration    //
