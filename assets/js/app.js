@@ -68,11 +68,13 @@ run(function() {
 	when('#accel', function() {
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	});
-	when('#camera', function() {
+	when('#camera');
+	when('#take_picture', function() {
 		navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
 			quality : 50,
 			destinationType : Camera.DestinationType.DATA_URL
 		});
+		display('#camera');
 	});
 });
 function onSuccess(acceleration) {
