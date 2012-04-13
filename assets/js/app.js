@@ -5,9 +5,9 @@ run(function () {
     // immediately invoked on first run
     var init = (function () {
         if (navigator.network.connection.type == Connection.NONE) {
-            alert("No internet connection");
+            alert("No internet connection - we won't be able to show you any maps");
         } else {
-            alert("Connection OK");
+            alert("We can reach Google - get ready for some awesome maps!");
         }
     })();
     
@@ -40,6 +40,7 @@ run(function () {
                 path += location + "&sensor=false";
 
                 x$('img#static_map').attr('src', path);
+                x$('#output').text('lat:'+position.coords.latitude+', lng:'+position.coords.longitude);
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
