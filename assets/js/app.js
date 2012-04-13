@@ -1,7 +1,7 @@
 //
 //  --- our app behavior logic ---
 //
-var timer;
+var timer, watchID;
 
 run(function() {
 	// immediately invoked on first run
@@ -76,6 +76,16 @@ run(function() {
 		});
 		display('#camera');
 	});
+	when('#compass', function() {
+		var options = {
+			frequency : 100
+		};
+		watchID = navigator.compass.watchHeading(onCompassSuccess, onCompassError, options);
+	});
+	when('#compass_back', function() {
+		navigator.compass.clearWatch(watchID);
+		display('#welcome');
+	});
 });
 function onSuccess(acceleration) {
 	x$('#accel_output').html('Acceleration X:<br/>' + acceleration.x + '<br/>' + 'Acceleration Y:<br/>' + acceleration.y + '<br/>' + 'Acceleration Z:<br/>' + acceleration.z + '<br/>' + 'Timestamp:<br/>' + acceleration.timestamp);
@@ -94,3 +104,12 @@ function onCameraSuccess(imageData) {
 function onCameraFail(message) {
 	alert('Failed because: ' + message);
 }
+
+function onCompassSuccess(heading) {
+	var element = document.getElementById('compass_output');
+	element.innerHTML = 'Heading: ' + heading.magneticHeading;
+};
+
+function onCompassError(compassError) {
+	alert('Compass error: ' + compassError.code);
+};
