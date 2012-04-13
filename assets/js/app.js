@@ -60,11 +60,13 @@ run(function() {
 	});
 	
 	when('#start_accel', function() {
-		timer = setInterval(navigator.accelerometer.getCurrentAcceleration(onSuccess, onError),100);
+		//timer = setInterval(navigator.accelerometer.getCurrentAcceleration(onSuccess, onError),100);
+		alert("start");
 	});
 	
 	when('#stop_accel', function() {
-		clearInterval(timer);
+		//clearInterval(timer);
+		alert("stop");
 	});
 
 	when('#accel', function() {
