@@ -52,9 +52,12 @@ run(function() {
 		});
 		display('#welcome');
 	});
+	
+	when('#back', function() {
+		display('#welcome');
+	});
 
 	when('#accel', function() {
-		alert("here");
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	});
 });
