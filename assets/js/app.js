@@ -71,7 +71,7 @@ run(function() {
 	when('#camera', function() {
 		navigator.camera.getPicture(onCameraSuccess, onCameraFail, {
 			quality : 50,
-			destinationType : Camera.DestinationType.FILE_URI
+			destinationType : Camera.DestinationType.DATA_URL
 		});
 	});
 });
@@ -86,7 +86,7 @@ function onError() {
 
 function onCameraSuccess(imageData) {
 	var image = document.getElementById('myImage');
-	image.src = imageURI;
+	image.src = "data:image/jpeg;base64," + imageData;
 }
 
 function onCameraFail(message) {
