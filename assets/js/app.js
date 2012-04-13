@@ -40,7 +40,7 @@ run(function () {
                 path += location + "&sensor=false";
 
                 x$('img#static_map').attr('src', path);
-                x$('#output').text('lat:'+position.coords.latitude+', lng:'+position.coords.longitude);
+                x$('#output').html('lat:'+position.coords.latitude+', lng:'+position.coords.longitude);
             }, function () {
                 x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
             });
