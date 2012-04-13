@@ -61,13 +61,11 @@ run(function() {
 	
 	when('#start_accel', function() {
 		timer = setInterval("navigator.accelerometer.getCurrentAcceleration(onSuccess, onError)",100);
-		//alert("start");
 		display('#accel');
 	});
 	
 	when('#stop_accel', function() {
 		clearInterval(timer);
-		//alert("stop");
 		display('#accel');
 	});
 
@@ -76,7 +74,7 @@ run(function() {
 	});
 });
 function onSuccess(acceleration) {
-	x$('#accel_output').html('Acceleration X: ' + acceleration.x + '<br/>' + 'Acceleration Y: ' + acceleration.y + '<br/>' + 'Acceleration Z: ' + acceleration.z + '<br/>' + 'Timestamp: ' + acceleration.timestamp);
+	x$('#accel_output').html('Acceleration X:<br/>' + acceleration.x + '<br/>' + 'Acceleration Y:<br/>' + acceleration.y + '<br/>' + 'Acceleration Z:<br/>' + acceleration.z + '<br/>' + 'Timestamp:<br/>' + acceleration.timestamp);
 }
 
 // onError: Failed to get the acceleration    //
