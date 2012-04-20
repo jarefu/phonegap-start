@@ -43,7 +43,8 @@ run(function() {
 				x$('#output').html('lat:' + position.coords.latitude + ', lng:' + position.coords.longitude);
 			}, function() {
 				x$('img#static_map').attr('src', "assets/img/gpsfailed.png");
-			});
+			},
+			{ enableHighAccuracy: true });
 		});
 	});
 	when('#save', function() {
